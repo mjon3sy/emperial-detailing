@@ -1,0 +1,74 @@
+---
+import { detailingPackages } from "../../content/packages";
+---
+
+<section id="packages" class="pricing-section">
+  <div class="container">
+    <div class="pricing-heading">
+      <p class="eyebrow">Packages & Pricing</p>
+      <h2>Choose Your Level of Clean</h2>
+      <p>
+        Straightforward detailing packages for routine maintenance, deeper
+        cleaning, and premium vehicle care.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      {
+        detailingPackages.map((pkg) => (
+          <article class:list={["pricing-card", { featured: pkg.featured }]}>
+            {pkg.featured && <span class="popular-badge">Most Popular</span>}
+
+            <header class="pricing-card-header">
+              <h3>{pkg.name}</h3>
+            </header>
+
+            {pkg.startingPrice && (
+              <div class="starting-price">
+                <span>Starting at</span>
+                <strong>{pkg.startingPrice}</strong>
+              </div>
+            )}
+
+            {pkg.prices && (
+              <div class="vehicle-prices">
+                {pkg.prices.map((item) => (
+                  <div>
+                    <strong>{item.price}</strong>
+                    <span>{item.vehicle}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div class="package-list">
+              <h4>Exterior</h4>
+              <ul>
+                {pkg.exterior.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="package-list">
+              <h4>Interior</h4>
+              <ul>
+                {pkg.interior.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <a class="package-button" href="#contact">
+              Book {pkg.name}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="pricing-note">
+      Final pricing may vary based on vehicle size, condition, and service needs.
+    </p>
+  </div>
+</section>

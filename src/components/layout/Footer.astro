@@ -1,0 +1,58 @@
+---
+import { site } from "../../config/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h2>{site.company.name}</h2>
+      <p>
+        Mobile auto and motorcycle detailing, paint correction,
+        ceramic protection, and oil-change services.
+      </p>
+    </div>
+
+    <div>
+      <h3>Navigate</h3>
+
+      <ul>
+        {site.navigation.map((item) => (
+          <li>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+
+      <ul>
+        <li>
+          <a href={`mailto:${site.contact.email}`}>
+            {site.contact.email}
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://instagram.com/Emperial.Detailing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @Emperial.Detailing
+          </a>
+        </li>
+
+        <li>{site.company.location}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© {year} {site.company.legalName}. All rights reserved.</p>
+    <p>By appointment only.</p>
+  </div>
+</footer>

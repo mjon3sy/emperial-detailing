@@ -1,0 +1,16 @@
+---
+import { site } from "../../config/site";
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <nav class="site-nav">
+      {site.navigation.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+
+    </nav>
+
+  </div>
+</header>

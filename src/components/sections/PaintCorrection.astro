@@ -1,0 +1,62 @@
+---
+import { paintCorrectionPackages } from "../../content/paintCorrection";
+---
+
+<section id="paint-correction" class="paint-correction-section">
+  <div class="container">
+    <div class="paint-correction-heading">
+      <p class="eyebrow">Paint Correction & Protection</p>
+      <h2>Restore Gloss. Reduce Imperfections. Protect the Finish.</h2>
+      <p>
+        Premium paint enhancement packages designed to improve your vehicle’s
+        appearance while adding lasting ceramic protection.
+      </p>
+    </div>
+
+    <div class="paint-correction-grid">
+      {
+        paintCorrectionPackages.map((pkg) => (
+          <article
+            class:list={[
+              "paint-correction-card",
+              { featured: pkg.featured },
+            ]}
+          >
+            {pkg.featured && (
+              <span class="paint-featured-badge">Enhanced Correction</span>
+            )}
+
+            <header class="paint-correction-card-header">
+              <h3>{pkg.name}</h3>
+              <p>{pkg.description}</p>
+            </header>
+
+            <div class="vehicle-prices">
+              {pkg.prices.map((item) => (
+                <div>
+                  <strong>{item.price}</strong>
+                  <span>{item.vehicle}</span>
+                </div>
+              ))}
+            </div>
+
+            <ul class="paint-feature-list">
+              {pkg.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+
+            <a class="package-button" href="#contact">
+              Book {pkg.name}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="pricing-note">
+      Paint correction results and final pricing may vary based on paint
+      condition, vehicle size, and the level of correction required.
+    </p>
+  </div>
+</section>

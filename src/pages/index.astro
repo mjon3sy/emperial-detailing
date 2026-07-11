@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import Hero from "../components/sections/Hero.astro";
+import Pricing from "../components/sections/Pricing.astro";
+import PaintCorrection from "../components/sections/PaintCorrection.astro";
+import AdditionalServices from "../components/sections/AdditionalServices.astro";
+import Services from "../components/sections/Services.astro";
+import About from "../components/sections/About.astro";
+import Contact from "../components/sections/Contact.astro";
+import Section from "../components/layout/Section.astro";
+import Card from "../components/ui/Card.astro";
+import { site } from "../config/site";
+---
+
+<BaseLayout
+  title={site.seo.title}
+  description={site.seo.description}
+  image={site.seo.ogImage}
+  url={site.company.url}
+>
+
+  <Header />
+  <main>
+    <Hero />
+
+    <Pricing />
+
+    <PaintCorrection />
+
+    <AdditionalServices />
+
+    <About />
+
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>

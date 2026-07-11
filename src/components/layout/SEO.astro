@@ -1,0 +1,42 @@
+---
+import { site } from "../../config/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+}
+
+const {
+  title = site.seo.title,
+  description = site.seo.description,
+  image = site.seo.ogImage,
+  url = site.company.url,
+} = Astro.props;
+
+const canonicalUrl = new URL(url, site.company.url).toString();
+const socialImageUrl = new URL(image, site.company.url).toString();
+---
+
+<title>{title}</title>
+
+<meta name="description" content={description} />
+<meta name="author" content={site.company.name} />
+<meta name="theme-color" content="#050505" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href={canonicalUrl} />
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={site.company.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={socialImageUrl} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImageUrl} />

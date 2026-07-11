@@ -1,0 +1,65 @@
+---
+import { site } from "../../config/site";
+import Button from "../ui/Button.astro";
+import logo from "../../assets/logos/emperial-logo.png";
+---
+
+<section class="hero">
+  <div class="hero-glow hero-glow-one"></div>
+  <div class="hero-glow hero-glow-two"></div>
+
+  <div class="container hero-layout">
+    <div class="hero-content">
+      <p class="eyebrow">Professional Mobile Detailing</p>
+
+      <h1>
+        Premium detailing.
+        <span>We come to you.</span>
+      </h1>
+
+      <p class="hero-text">
+        Mobile auto and motorcycle detailing, paint correction, ceramic
+        protection, and oil-change services throughout Central Florida.
+      </p>
+
+      <div class="hero-actions">
+        <Button href="#packages">View Packages</Button>
+        <Button href="#contact" variant="secondary">Book Appointment</Button>
+      </div>
+
+      <div class="hero-highlights">
+        <div>
+          <strong>Mobile</strong>
+          <span>Service at your location</span>
+        </div>
+
+        <div>
+          <strong>Premium</strong>
+          <span>Professional products and care</span>
+        </div>
+
+        <div>
+          <strong>Complete</strong>
+          <span>Cars, SUVs, trucks, and motorcycles</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-logo-frame">
+        <div class="hero-logo-ring"></div>
+
+        <img
+          src={logo.src}
+          alt={`${site.company.name} logo`}
+          class="hero-logo"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Explore services</span>
+    <span aria-hidden="true">↓</span>
+  </div>
+</section>

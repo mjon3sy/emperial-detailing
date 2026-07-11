@@ -1,0 +1,24 @@
+---
+import {
+  Network,
+  Cable,
+  Camera,
+  Monitor,
+  Lightbulb,
+  HelpCircle,
+} from "lucide-astro";
+
+const { name, size = 28 } = Astro.props;
+
+const icons = {
+  network: Network,
+  cable: Cable,
+  camera: Camera,
+  computer: Monitor,
+  consulting: Lightbulb,
+};
+
+const IconComponent = icons[name] ?? HelpCircle;
+---
+
+<IconComponent size={size} stroke-width={2} />

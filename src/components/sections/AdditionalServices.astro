@@ -1,0 +1,49 @@
+---
+import { additionalServices } from "../../content/additionalServices";
+---
+
+<section id="additional-services" class="additional-services-section">
+  <div class="container">
+    <div class="additional-services-heading">
+      <p class="eyebrow">Additional Services</p>
+      <h2>Customize Your Service</h2>
+      <p>
+        Add targeted cleaning, protection, motorcycle care, or routine
+        maintenance to your appointment.
+      </p>
+    </div>
+
+    <div class="additional-services-grid">
+      {
+        additionalServices.map((service) => (
+          <article
+            class:list={[
+              "additional-service-card",
+              { featured: service.featured },
+            ]}
+          >
+            <div class="additional-service-icon" aria-hidden="true">
+              {service.icon === "seat" && "◫"}
+              {service.icon === "floor" && "▦"}
+              {service.icon === "shield" && "⬡"}
+              {service.icon === "headlight" && "◉"}
+              {service.icon === "motorcycle" && "🏍"}
+              {service.icon === "oil" && "◒"}
+            </div>
+
+            <h3>{service.name}</h3>
+            <p>{service.description}</p>
+
+            <div class="additional-service-pricing">
+              {service.priceLines.map((line) => (
+                <strong>{line}</strong>
+              ))}
+            </div>
+
+            <a href="#contact">Book This Service</a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

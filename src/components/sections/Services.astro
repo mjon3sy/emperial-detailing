@@ -1,0 +1,29 @@
+---
+import Section from "../layout/Section.astro";
+import Card from "../ui/Card.astro";
+import Icon from "../ui/Icon.astro";
+import { services } from "../../content/services";
+
+const featuredServices = services
+  .filter((service) => service.featured)
+  .sort((a, b) => a.order - b.order);
+---
+
+<Section
+  id="services"
+  eyebrow="Services"
+  title="Car Wash & Detailing Services"
+  description="From quick maintenance washes to full details, Emperial Detailing helps keep your vehicle clean, polished, and protected."
+>
+  <div class="service-grid">
+    {featuredServices.map((service) => (
+      <Card>
+        <div class="service-icon">
+          <Icon name={service.icon} />
+        </div>
+        <h3>{service.title}</h3>
+        <p>{service.shortDescription}</p>
+      </Card>
+    ))}
+  </div>
+</Section>

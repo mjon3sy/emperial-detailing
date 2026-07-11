@@ -1,0 +1,28 @@
+---
+import "../styles/global.css";
+import { site } from "../config/site";
+import { themeToCssVariables } from "../utils/theme";
+import SEO from "../components/layout/SEO.astro";
+
+const {
+  title = site.company.name,
+  description = site.company.tagline,
+  image,
+  url,
+} = Astro.props;
+
+const themeStyles = themeToCssVariables(site.theme);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SEO title={title} description={description} image={image} url={url} />
+  </head>
+
+  <body style={themeStyles}>
+    <slot />
+  </body>
+</html>
