@@ -16,7 +16,7 @@ export type DetailingPackage = {
 export const detailingPackages: DetailingPackage[] = [
   {
     id: "standard",
-    name: "Standard Package",
+    name: "Essential Package",
     startingPrice: "$100",
     exterior: [
       "Hand wash and dry",
@@ -32,61 +32,64 @@ export const detailingPackages: DetailingPackage[] = [
 
   {
     id: "premium",
-    name: "Premium Package",
+    name: "Premier Package",
     featured: true,
     prices: [
       {
         vehicle: "Sedan",
-        price: "$175",
+        price: "$160",
       },
       {
         vehicle: "Small SUV",
         price: "$200",
       },
       {
-        vehicle: "Large SUV",
-        price: "$250",
+        vehicle: "Large SUV/Truck",
+        price: "$240",
       },
     ],
     exterior: [
       "Hand wash and dry",
       "Door jambs and rims",
       "Tire shine",
+      "Wheel & tire clean",
       "Spray wax",
     ],
     interior: [
       "Vacuum",
       "Clean all windows",
+      "Interior wipe down",
       "Scrub and treat all vinyl and leather seats",
     ],
   },
 
   {
     id: "elite",
-    name: "Elite Package",
+    name: "Signature Package",
     prices: [
       {
         vehicle: "Sedan",
-        price: "$275",
+        price: "$260",
       },
       {
         vehicle: "Small SUV",
-        price: "$300",
+        price: "$310",
       },
       {
-        vehicle: "Large SUV",
-        price: "$350",
+        vehicle: "Large SUV/Truck",
+        price: "$360",
       },
     ],
     exterior: [
       "Hand wash and dry",
+      "Wheel & tire clean",
       "Door jambs and rims",
       "Tire shine",
-      "Full-body clay bar",
-      "Machine-applied deep wax",
+      "Sealant wax",
     ],
     interior: [
       "Vacuum",
+      "Interior wip down",
       "Clean all windows",
       "Scrub and treat all vinyl and leather seats",
     ],

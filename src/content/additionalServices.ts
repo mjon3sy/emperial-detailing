@@ -14,8 +14,8 @@ export const additionalServices: AdditionalService[] = [
     description:
       "Deep cleaning for cloth seating to help remove dirt, buildup, and odors.",
     priceLines: [
-      "$150 — 2 rows",
-      "$175 — 3 rows",
+      "$130 — 2 rows",
+      "$160 — 3 rows",
     ],
     icon: "seat",
   },
@@ -25,8 +25,8 @@ export const additionalServices: AdditionalService[] = [
     description:
       "Deep cleaning for vehicle flooring and mats.",
     priceLines: [
-      "$150 — 2 rows",
-      "$175 — 3 rows",
+      "$130 — 2 rows",
+      "$160 — 3 rows",
     ],
     icon: "floor",
   },
@@ -36,7 +36,7 @@ export const additionalServices: AdditionalService[] = [
     description:
       "Protective ceramic coating application with clay bar preparation included.",
     priceLines: [
-      "Starting at $250",
+      "Starting at $230",
     ],
     icon: "shield",
     featured: true,

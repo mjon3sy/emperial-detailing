@@ -21,15 +21,15 @@ export const paintCorrectionPackages: PaintCorrectionPackage[] = [
     prices: [
       {
         vehicle: "Sedan",
-        price: "$550",
+        price: "$520",
       },
       {
         vehicle: "Small SUV",
         price: "$650",
       },
       {
-        vehicle: "Large SUV",
-        price: "$750",
+        vehicle: "Large SUV/Truck",
+        price: "$730",
       },
     ],
     features: [
@@ -44,21 +44,21 @@ export const paintCorrectionPackages: PaintCorrectionPackage[] = [
 
   {
     id: "paint-correction-plus",
-    name: "Plus P.C.P. Package",
+    name: "Premium P.C.P. Package",
     description:
       "Two-step paint correction for vehicles needing a deeper level of paint enhancement.",
     prices: [
       {
         vehicle: "Sedan",
-        price: "$675",
+        price: "$650",
       },
       {
         vehicle: "Small SUV",
-        price: "$775",
+        price: "$750",
       },
       {
-        vehicle: "Large SUV",
-        price: "$875",
+        vehicle: "Large SUV/Truck",
+        price: "$850",
       },
     ],
     features: [

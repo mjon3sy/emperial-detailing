@@ -13,8 +13,9 @@ export const site = {
 
   contact: {
     email: "shine@emperialdetailing.com",
-    phone: "",
+    phone: "(407) 498-6869",
     instagram: "https://instagram.com/Emperial.Detailing",
+    facebook: "https://facebook.com/EmperialDetail.com",
   },
 
   seo: {
