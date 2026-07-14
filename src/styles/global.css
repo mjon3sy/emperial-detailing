@@ -1748,3 +1748,57 @@ p {
     color: var(--color-primary);
   }
 }
+
+
+/* Vehicle-specific booking options */
+.vehicle-price-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  text-align: center;
+}
+
+.vehicle-price-option strong {
+  display: block;
+}
+
+.vehicle-price-option span {
+  display: block;
+  color: var(--color-muted);
+}
+
+.vehicle-book-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  margin-top: 4px;
+  padding: 5px 13px;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.vehicle-book-link:hover {
+  background: var(--color-primary);
+  color: #050505;
+}
+
+.starting-price-book {
+  margin-top: 12px;
+  padding: 8px 16px;
+}
+
+@media (max-width: 420px) {
+  .vehicle-book-link {
+    padding: 5px 10px;
+    font-size: 0.66rem;
+  }
+}

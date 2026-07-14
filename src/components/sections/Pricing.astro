@@ -1,5 +1,41 @@
 ---
 import { detailingPackages } from "../../content/packages";
+import { site } from "../../config/site";
+
+const createBookingHref = (
+  packageName: string,
+  vehicle?: string,
+  price?: string
+) => {
+  const subject = encodeURIComponent(
+    `Booking Request - ${packageName}`
+  );
+
+  const packageDetails = vehicle
+    ? `Package: ${packageName}
+Vehicle size: ${vehicle}
+Price shown: ${price}`
+    : `Package: ${packageName}${price ? `\nStarting price: ${price}` : ""}`;
+
+  const body = encodeURIComponent(
+`Hi Emperial Detailing,
+
+I would like to book the following detailing package:
+
+${packageDetails}
+
+Name:
+Phone:
+Vehicle year, make, and model:
+Preferred date:
+Service address:
+Additional notes:
+
+Thank you.`
+  );
+
+  return `mailto:${site.contact.email}?subject=${subject}&body=${body}`;
+};
 ---
 
 <section id="packages" class="pricing-section">
@@ -7,6 +43,7 @@ import { detailingPackages } from "../../content/packages";
     <div class="pricing-heading">
       <p class="eyebrow">Packages & Pricing</p>
       <h2>Choose Your Level of Clean</h2>
+
       <p>
         Straightforward detailing packages for routine maintenance, deeper
         cleaning, and premium vehicle care.
@@ -27,15 +64,37 @@ import { detailingPackages } from "../../content/packages";
               <div class="starting-price">
                 <span>Starting at</span>
                 <strong>{pkg.startingPrice}</strong>
+
+                <a
+                  class="vehicle-book-link starting-price-book"
+                  href={createBookingHref(
+                    pkg.name,
+                    undefined,
+                    pkg.startingPrice
+                  )}
+                >
+                  Book {pkg.name}
+                </a>
               </div>
             )}
 
             {pkg.prices && (
               <div class="vehicle-prices">
                 {pkg.prices.map((item) => (
-                  <div>
+                  <div class="vehicle-price-option">
                     <strong>{item.price}</strong>
                     <span>{item.vehicle}</span>
+
+                    <a
+                      class="vehicle-book-link"
+                      href={createBookingHref(
+                        pkg.name,
+                        item.vehicle,
+                        item.price
+                      )}
+                    >
+                      Book
+                    </a>
                   </div>
                 ))}
               </div>
@@ -43,6 +102,7 @@ import { detailingPackages } from "../../content/packages";
 
             <div class="package-list">
               <h4>Exterior</h4>
+
               <ul>
                 {pkg.exterior.map((item) => (
                   <li>{item}</li>
@@ -52,16 +112,13 @@ import { detailingPackages } from "../../content/packages";
 
             <div class="package-list">
               <h4>Interior</h4>
+
               <ul>
                 {pkg.interior.map((item) => (
                   <li>{item}</li>
                 ))}
               </ul>
             </div>
-
-            <a class="package-button" href="#contact">
-              Book {pkg.name}
-            </a>
           </article>
         ))
       }

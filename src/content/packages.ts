@@ -89,7 +89,7 @@ export const detailingPackages: DetailingPackage[] = [
     ],
     interior: [
       "Vacuum",
-      "Interior wip down",
+      "Interior wipe down",
       "Clean all windows",
       "Scrub and treat all vinyl and leather seats",
     ],

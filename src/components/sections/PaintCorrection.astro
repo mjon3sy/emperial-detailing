@@ -1,12 +1,52 @@
 ---
 import { paintCorrectionPackages } from "../../content/paintCorrection";
+import { site } from "../../config/site";
+
+const createBookingHref = (
+  packageName: string,
+  vehicle?: string,
+  price?: string
+) => {
+  const subject = encodeURIComponent(
+    `Booking Request - ${packageName}`
+  );
+
+  const packageDetails = vehicle
+    ? `Package: ${packageName}
+Vehicle size: ${vehicle}
+Price shown: ${price}`
+    : `Package: ${packageName}`;
+
+  const body = encodeURIComponent(
+`Hi Emperial Detailing,
+
+I would like to book the following paint correction and protection package:
+
+${packageDetails}
+
+Name:
+Phone:
+Vehicle year, make, and model:
+Vehicle color:
+Paint condition or concerns:
+Preferred date:
+Service address:
+Additional notes:
+
+Thank you.`
+  );
+
+  return `mailto:${site.contact.email}?subject=${subject}&body=${body}`;
+};
 ---
 
 <section id="paint-correction" class="paint-correction-section">
   <div class="container">
     <div class="paint-correction-heading">
       <p class="eyebrow">Paint Correction & Protection</p>
+
       <h2>Restore Gloss. Reduce Imperfections. Protect the Finish.</h2>
+
       <p>
         Premium paint enhancement packages designed to improve your vehicle’s
         appearance while adding lasting ceramic protection.
@@ -23,7 +63,9 @@ import { paintCorrectionPackages } from "../../content/paintCorrection";
             ]}
           >
             {pkg.featured && (
-              <span class="paint-featured-badge">Enhanced Correction</span>
+              <span class="paint-featured-badge">
+                Enhanced Correction
+              </span>
             )}
 
             <header class="paint-correction-card-header">
@@ -33,9 +75,20 @@ import { paintCorrectionPackages } from "../../content/paintCorrection";
 
             <div class="vehicle-prices">
               {pkg.prices.map((item) => (
-                <div>
+                <div class="vehicle-price-option">
                   <strong>{item.price}</strong>
                   <span>{item.vehicle}</span>
+
+                  <a
+                    class="vehicle-book-link"
+                    href={createBookingHref(
+                      pkg.name,
+                      item.vehicle,
+                      item.price
+                    )}
+                  >
+                    Book
+                  </a>
                 </div>
               ))}
             </div>
@@ -45,10 +98,6 @@ import { paintCorrectionPackages } from "../../content/paintCorrection";
                 <li>{feature}</li>
               ))}
             </ul>
-
-            <a class="package-button" href="#contact">
-              Book {pkg.name}
-            </a>
           </article>
         ))
       }
