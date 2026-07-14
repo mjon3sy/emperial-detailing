@@ -6,6 +6,13 @@ import {
   Monitor,
   Lightbulb,
   HelpCircle,
+  Phone,
+  MessageCircle,
+  Mail,
+  Instagram,
+  Facebook,
+  MapPin,
+  Clock,
 } from "lucide-astro";
 
 const { name, size = 28 } = Astro.props;
@@ -16,9 +23,20 @@ const icons = {
   camera: Camera,
   computer: Monitor,
   consulting: Lightbulb,
+  phone: Phone,
+  message: MessageCircle,
+  email: Mail,
+  instagram: Instagram,
+  facebook: Facebook,
+  location: MapPin,
+  clock: Clock,
 };
 
 const IconComponent = icons[name] ?? HelpCircle;
 ---
 
-<IconComponent size={size} stroke-width={2} />
+<IconComponent
+  size={size}
+  stroke-width={2}
+  aria-hidden="true"
+/>

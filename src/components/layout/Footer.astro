@@ -1,13 +1,17 @@
 ---
 import { site } from "../../config/site";
+import Icon from "../ui/Icon.astro";
 
 const year = new Date().getFullYear();
+const phoneDigits = site.contact.phone.replace(/\D/g, "");
+const phoneHref = phoneDigits ? `tel:+1${phoneDigits}` : "";
 ---
 
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
       <h2>{site.company.name}</h2>
+
       <p>
         Mobile auto and motorcycle detailing, paint correction,
         ceramic protection, and oil-change services.
@@ -29,24 +33,59 @@ const year = new Date().getFullYear();
     <div>
       <h3>Contact</h3>
 
-      <ul>
-        <li>
-          <a href={`mailto:${site.contact.email}`}>
-            {site.contact.email}
-          </a>
-        </li>
+      <ul class="footer-contact-list">
+        {site.contact.phone && (
+          <li>
+            <Icon name="phone" size={18} />
+
+            <a href={phoneHref}>
+              {site.contact.phone}
+            </a>
+          </li>
+        )}
+
+        {site.contact.email && (
+          <li>
+            <Icon name="email" size={18} />
+
+            <a href={`mailto:${site.contact.email}`}>
+              {site.contact.email}
+            </a>
+          </li>
+        )}
+
+        {site.contact.instagram && (
+          <li>
+            <Icon name="instagram" size={18} />
+
+            <a
+              href={site.contact.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @Emperial.Detailing
+            </a>
+          </li>
+        )}
+
+        {site.contact.facebook && (
+          <li>
+            <Icon name="facebook" size={18} />
+
+            <a
+              href={site.contact.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Emperial Detailing
+            </a>
+          </li>
+        )}
 
         <li>
-          <a
-            href="https://instagram.com/Emperial.Detailing"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @Emperial.Detailing
-          </a>
+          <Icon name="location" size={18} />
+          <span>{site.company.location}</span>
         </li>
-
-        <li>{site.company.location}</li>
       </ul>
     </div>
   </div>

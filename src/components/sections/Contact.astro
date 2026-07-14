@@ -1,30 +1,38 @@
 ---
 import { site } from "../../config/site";
+import Icon from "../ui/Icon.astro";
+
+const phoneDigits = site.contact.phone.replace(/\D/g, "");
+const phoneHref = phoneDigits ? `tel:+1${phoneDigits}` : "";
+const textHref = phoneDigits ? `sms:+1${phoneDigits}` : "";
 ---
 
 <section id="contact" class="contact-section">
-
   <div class="container">
-
     <div class="contact-card">
+      <p class="eyebrow">Contact</p>
 
-      <p class="eyebrow">
-        Contact
-      </p>
-
-      <h2>
-        Ready to Make Your Vehicle Shine?
-      </h2>
+      <h2>Ready to Make Your Vehicle Shine?</h2>
 
       <p class="contact-description">
-        Whether you're looking for a maintenance wash,
-        premium detail, paint correction, or motorcycle
-        detailing, we're here to help.
+        Whether you're looking for a maintenance wash, premium detail,
+        paint correction, or motorcycle detailing, we're here to help.
       </p>
 
       <div class="contact-grid">
+        {site.contact.phone && (
+          <div class="contact-item">
+            <Icon name="phone" size={24} />
+            <h3>Call or Text</h3>
+
+            <a href={phoneHref}>
+              {site.contact.phone}
+            </a>
+          </div>
+        )}
 
         <div class="contact-item">
+          <Icon name="email" size={24} />
           <h3>Email</h3>
 
           <a href={`mailto:${site.contact.email}`}>
@@ -32,45 +40,69 @@ import { site } from "../../config/site";
           </a>
         </div>
 
-        <div class="contact-item">
-          <h3>Instagram</h3>
+        {site.contact.instagram && (
+          <div class="contact-item">
+            <Icon name="instagram" size={24} />
+            <h3>Instagram</h3>
 
-          <a
-            href="https://instagram.com/Emperial.Detailing"
-            target="_blank"
-            rel="noopener"
-          >
-            @Emperial.Detailing
-          </a>
-        </div>
+            <a
+              href={site.contact.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @Emperial.Detailing
+            </a>
+          </div>
+        )}
+
+        {site.contact.facebook && (
+          <div class="contact-item">
+            <Icon name="facebook" size={24} />
+            <h3>Facebook</h3>
+
+            <a
+              href={site.contact.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Emperial Detailing
+            </a>
+          </div>
+        )}
 
         <div class="contact-item">
+          <Icon name="location" size={24} />
           <h3>Service Area</h3>
-
-          <p>
-            Central Florida
-          </p>
+          <p>{site.company.location}</p>
         </div>
 
         <div class="contact-item">
+          <Icon name="clock" size={24} />
           <h3>Availability</h3>
-
-          <p>
-            By Appointment Only
-          </p>
+          <p>By Appointment Only</p>
         </div>
-
       </div>
 
-      <a
-        class="contact-button"
-        href="mailto:shine@emperialdetailing.com"
-      >
-        Schedule Your Detail
-      </a>
+      <div class="contact-actions">
+        {site.contact.phone && (
+          <>
+            <a class="contact-button" href={phoneHref}>
+              Call Now
+            </a>
 
+            <a class="contact-button contact-button-secondary" href={textHref}>
+              Send a Text
+            </a>
+          </>
+        )}
+
+        <a
+          class="contact-button contact-button-secondary"
+          href={`mailto:${site.contact.email}`}
+        >
+          Send an Email
+        </a>
+      </div>
     </div>
-
   </div>
-
 </section>

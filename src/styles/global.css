@@ -1614,3 +1614,76 @@ p {
     width: 100%;
   }
 }
+
+
+/* Contact icons and actions */
+.contact-item > svg {
+  margin-bottom: 12px;
+  color: var(--color-primary);
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.contact-button-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.contact-button-secondary:hover {
+  background: color-mix(
+    in srgb,
+    var(--color-primary) 10%,
+    transparent
+  );
+}
+
+@media (max-width: 560px) {
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-actions .contact-button {
+    width: 100%;
+  }
+}
+
+/* Footer contact icons */
+.footer-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-contact-list svg {
+  flex: 0 0 auto;
+  color: var(--color-primary);
+}
+
+.footer-contact-list span {
+  color: var(--color-muted);
+}
+
+
+/* Prevent awkward contact-link wrapping */
+.contact-item a {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.contact-item {
+  min-width: 0;
+}
+
+.contact-grid {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 240px), 1fr)
+  );
+}
+

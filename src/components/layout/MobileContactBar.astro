@@ -1,0 +1,46 @@
+---
+import { site } from "../../config/site";
+import Icon from "../ui/Icon.astro";
+
+const phoneDigits = site.contact.phone.replace(/\D/g, "");
+const phoneHref = phoneDigits ? `tel:+1${phoneDigits}` : "";
+const textHref = phoneDigits ? `sms:+1${phoneDigits}` : "";
+---
+
+<nav class="mobile-contact-bar" aria-label="Quick contact">
+  {site.contact.phone && (
+    <a href={phoneHref}>
+      <Icon name="phone" size={21} />
+      <span>Call</span>
+    </a>
+  )}
+
+  {site.contact.phone && (
+    <a href={textHref}>
+      <Icon name="message" size={21} />
+      <span>Text</span>
+    </a>
+  )}
+
+  {site.contact.instagram && (
+    <a
+      href={site.contact.instagram}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Icon name="instagram" size={21} />
+      <span>Instagram</span>
+    </a>
+  )}
+
+  {site.contact.facebook && (
+    <a
+      href={site.contact.facebook}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Icon name="facebook" size={21} />
+      <span>Facebook</span>
+    </a>
+  )}
+</nav>

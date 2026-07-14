@@ -16,7 +16,7 @@ export type DetailingPackage = {
 export const detailingPackages: DetailingPackage[] = [
   {
     id: "standard",
-    name: "Essential Package",
+    name: "Essential",
     startingPrice: "$100",
     exterior: [
       "Hand wash and dry",
@@ -32,7 +32,7 @@ export const detailingPackages: DetailingPackage[] = [
 
   {
     id: "premium",
-    name: "Premier Package",
+    name: "Premier",
     featured: true,
     prices: [
       {
@@ -65,7 +65,7 @@ export const detailingPackages: DetailingPackage[] = [
 
   {
     id: "elite",
-    name: "Signature Package",
+    name: "Signature",
     prices: [
       {
         vehicle: "Sedan",
