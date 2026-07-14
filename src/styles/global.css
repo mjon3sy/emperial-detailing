@@ -1687,3 +1687,64 @@ p {
   );
 }
 
+
+/* Mobile header and contact bar fixes */
+@media (max-width: 760px) {
+  .site-header {
+    display: none;
+  }
+
+  .header-inner {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    padding-bottom: 78px;
+  }
+
+  .mobile-contact-bar {
+    position: fixed !important;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    margin: 0;
+    padding:
+      8px
+      max(8px, env(safe-area-inset-right))
+      calc(8px + env(safe-area-inset-bottom))
+      max(8px, env(safe-area-inset-left));
+    background: rgba(10, 9, 6, 0.97);
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(14px);
+    transform: none !important;
+  }
+
+  .mobile-contact-bar a {
+    display: grid;
+    place-items: center;
+    gap: 4px;
+    min-width: 0;
+    min-height: 52px;
+    padding: 4px 2px;
+    color: var(--color-text);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .mobile-contact-bar a svg {
+    color: var(--color-primary);
+  }
+}
